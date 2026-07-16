@@ -4,7 +4,7 @@ print(" ")
 
 #for i in range(start,stop,step)
 #range 遍历
-for i in range(1,4,2):
+for i in range(1,4,2):      #1，3
     print(i)
 
 
