@@ -78,3 +78,77 @@ def list_sum(l):
         total += i
     return total
 print(list_sum([1,2,3,4,5]))
+
+a_list[3] = 10
+a_list.append(11)        #在列表末尾添加元素11,但作为函数，它不会返回任何值，即None
+print(a_list)
+
+a_list.extend([3,4])        #直接在a_list后面追加新的列表
+
+def make_ordered_list(n):
+    """
+    n是一个正数，返回从0到n的列表
+    """
+    a = []
+    for i in range(n+1):
+        a.append(i)
+    return a
+print(make_ordered_list(6))
+
+def remove_elem(l,e):
+    """
+    l是一个列表，输出l列表剔除e的新列表
+    """
+    a = []
+    for i in l:
+        if i != e:
+            a.append(i)
+    return a
+print(remove_elem([1,2,3,4,5],5))
+
+#string 转化成list
+s = "i like apples"
+l = list(s)             #直接转化为列表，每个字符为一个元素
+print(l)
+l = s.split(" ")        #将s字符串以“ ”作为分割转化成列表
+print(l)
+#list 转化成string
+print(" ".join(l))      #使用.join函数可以将list中每个元素以“ ”为间隔分开
+print("_".join(l))      #.join只适合包含字符串元素的列表
+print("".join(l))
+
+def count_words(sen):
+    """
+    sen是一个句子，返回这个句子有多少个单词
+    """
+    newlist = sen.split(" ")
+    return len(newlist)
+print(count_words("i like apples , apples are good for our health"))
+
+#sort函数，给list里面的元素排序
+l = [2,4,9,1,3]                     #升序排序
+string = ["apple","egg","b"]        #首字母排序
+l.sort()
+string.sort()
+print(l,string)
+#sorted函数，排序时会创建副本，不影响原来的list
+l = [2,4,9,1,3]
+l1 = sorted(l)
+print(l1)
+#reverse()函数，倒转list里面的元素
+l.reverse()
+print(l)
+
+def square_list(l):
+    """
+    将列表中的数字全部平方
+    """
+    for i in range(len(l)):
+        l[i] = l[i]**2
+l = [1,2,3,4,5]
+square_list(l)
+print(l)
+
+#清空列表
+l.clear()       #使用这个函数时，l在内存中的位置没有发生改变（可以用id来查看位置）
+print(l)
