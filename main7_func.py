@@ -21,8 +21,9 @@ print(sum_odd(1,5))
 #interesting:pirnt作为一个函数本身不会return任何值
 print(print(5))
 
-def count_unms_with_sqrt_close_to(n,epsilon):
-    """
+def count_unms_with_sqrt_close_to(n,epsilon=0.01):   #写成(n,epsilon=0.01)时，用户不输入epsilon时默认epsilon=0.01
+                                                    #默认参数必须放在非默认参数的后面
+    """                                                 
     在n的范围内,有多少整数的平方根落在这个范围
 
     """
@@ -39,8 +40,11 @@ def count_unms_with_sqrt_close_to(n,epsilon):
             break
         temp1 = temp
     return temp
-
+#calling the function
 print(count_unms_with_sqrt_close_to(10,0.1))
+print(count_unms_with_sqrt_close_to(10))  # 使用默认的epsilon值
+print(count_unms_with_sqrt_close_to(10,epsilon=0.001))
+print(count_unms_with_sqrt_close_to(n=10,epsilon=0.001))
 
 #如果函数中没有相关变量，他会到外层作用域寻找相关变量直到找到为止
 #函数可以访问超出自身的变量，但是不能修改
@@ -60,3 +64,11 @@ def clac(op,x,y):       #op作为变量传递了add函数进去
 def add(x,y):
     return x+y
 print(clac(add,5,3))
+
+#函数返回函数（链式）
+def make_prod(a):       #看不懂内存关系的回到12集40：00
+    def g(b):
+        return a*b
+    return g
+val = make_prod(2)(3)
+print(val)
