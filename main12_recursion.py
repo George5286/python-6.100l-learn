@@ -30,3 +30,33 @@ def fact(n):
 print(fact(4))
 
 #迭代法 for和while循环
+
+#斐波那契数列（效率低）
+def fib(x):
+    if x == 1 or x == 2:
+        return 1
+    else:
+        return fib(x-1) + fib(x-2)
+
+print(fib(34))
+
+#高效率(用字典来存储计算过的结果)
+n = {1:1,2:1}
+def fibe(x,n):
+    if x in n:
+        return n[x]
+    else:
+        temp = fibe(x-1,n) + fibe(x-2,n)
+        n[x] = temp
+        return temp
+
+print(fibe(34,n))
+
+def sum_list(l):
+    if len(l) == 1:
+        return l[0]
+    else:
+        return l[0] + sum_list(l[1:])
+
+a = [0,1,2,3]
+print(sum_list(a))
