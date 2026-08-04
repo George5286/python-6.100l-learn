@@ -60,3 +60,34 @@ def sum_list(l):
 
 a = [0,1,2,3]
 print(sum_list(a))
+
+#扁平化列表
+l = [[1,2],[3,4],[5,6,7]]
+def flatten(l):
+    if len(l) == 1:
+        return l[0]
+    else:
+        return l[0] + flatten(l[1:])
+
+print(flatten(l))
+
+#x是否在l列表中
+def in_lists(l,x):
+    if len(l) == 1:
+        return x in l[0]
+    elif x in l[0]:
+        return True
+    else:
+        return in_lists(l[1:],x)
+
+print(in_lists(l,8))
+
+#反转列表内的元素
+def my_rev(m):
+    if len(m) == 1:
+        return m
+    else:
+        return my_rev(m[1:]) + [m[0]]       #将第一个元素放到最后面
+print(my_rev([1,2,3,4,5]))
+
+#使用递归时，确保每一个return返回的类型都是一样的
